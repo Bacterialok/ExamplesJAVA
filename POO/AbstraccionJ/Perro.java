@@ -1,5 +1,6 @@
-public class Perro extends Animal {
+package POO.AbstraccionJ;
 
+public class Perro extends Animal{
     public Perro(String nombre) {
         super(nombre);
     }

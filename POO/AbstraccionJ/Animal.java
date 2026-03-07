@@ -1,3 +1,5 @@
+package POO.AbstraccionJ;
+
 public abstract class Animal {
     protected String nombre;
 
