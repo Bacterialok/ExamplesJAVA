@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Ejercicio0823_4 {
+public class Ejercicio0803_4 {
     public static void main(String[] args) {
         List<Integer> numeros = List.of(3, 8, 12, 5, 20, 7, 16);
 

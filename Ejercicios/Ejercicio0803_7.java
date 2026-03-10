@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.List;
 
-public class Ejercicio0823_7 {
+public class Ejercicio0803_7 {
     public static void main(String[] args) {
         List<Persona1> personas = List.of(
                 new Persona1("Ana", 25),

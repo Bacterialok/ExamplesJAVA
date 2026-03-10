@@ -1,11 +1,11 @@
 import java.util.List;
 
-public class Ejercicio0823_5 {
+public class Ejercicio0803_3 {
     public static void main(String[] args) {
-        List<Integer> numeros = List.of(9, 2, 15, 4, 7, 20, 1);
+        List<Integer> numeros = List.of(2, 4, 6, 8, 10);
 
         numeros.stream()
-        .sorted()
+        .map(numero -> numero * 2)
         .forEach(System.out::println);
     }
 }

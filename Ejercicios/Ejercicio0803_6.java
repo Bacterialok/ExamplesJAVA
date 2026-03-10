@@ -24,7 +24,7 @@ class Persona1 {
     }
 }
 
-public class Ejercicio0823_6 {
+public class Ejercicio0803_6 {
     public static void main(String[] args) {
         List<Persona1> personas = List.of(
                 new Persona1("Ana", 25),
