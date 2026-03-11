@@ -6,17 +6,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main01 {
+
+    public static List<Empleado01> evaluadorEmpleado(List<Empleado01> empleados) {
+        return empleados.stream()
+            .filter(e -> e.getEdad() > 30 && e.getSalario() > 15000 && e.getDepartamento().equals("Sistemas"))
+            .collect(Collectors.toList());
+    }
     public static void main(String[] args) {
         List<Empleado01> empleados = new ArrayList<Empleado01>();
         empleados.add(new Empleado01("Nicolas", 23, 38000, "Sistemas"));
-        empleados.add(new Empleado01("Francisco", 29, 35000, "Sistemas"));
+        empleados.add(new Empleado01("Francisco", 39, 35000, "Sistemas"));
         empleados.add(new Empleado01("Rey", 31, 30000, "RH"));
         empleados.add(new Empleado01("Omar", 25, 20000, "Ventas"));
         empleados.add(new Empleado01("Irving", 40, 24589, "RH"));
         empleados.add(new Empleado01("Diego", 24, 40000, "Contabilidad"));
         empleados.add(new Empleado01("Luis", 34, 34000, "Contabilidad"));
 
-        empleados.forEach(e -> System.err.println(e.toString()));
+        empleados.forEach(e -> System.out.println(e.toString()));
         System.out.println();
 
         List<Empleado01> empleadosBySalario = empleados.stream()
@@ -34,6 +40,10 @@ public class Main01 {
             }
         });
 
+        empleados.forEach(System.out::println);
         // empleados.stream().sorted(Comparator.comparing(Empleado01::getNombre)).forEach(System.out::println);
+
+        System.out.println();
+        evaluadorEmpleado(empleados).stream().forEach(System.out::println);
     }
 }
