@@ -128,59 +128,71 @@ public class Main02 {
         cursos.stream().forEach(System.out::println);
 
         System.out.println("\nOrdenar cursos por costo: ");
+
         cursos.stream()
                 .sorted(Comparator.comparing(Curso01::getCosto))
                 .forEach(System.out::println);
 
         System.out.println("\nOrdenar cursos por nombre: ");
-        cursos.sort(new Comparator<Curso01>() {
+        cursos.stream().sorted(new Comparator<Curso01>() {
             @Override
             public int compare(Curso01 c1, Curso01 c2) {
                 return c1.getNombre().compareTo(c2.getNombre());
-            }          
+            }
         });
 
+        // cursos.stream().sorted(Comparator.comparing(Curso01::getNombre)).forEach(System.out::println);
+        // //Version elegante
         cursos.stream().forEach(System.out::println);
-        
+
         System.out.println("\nFiltrar con interfaz funcional: ");
+
+        System.out.println("\n- Cursos de más de 40 horas");
         IEvaluadorCurso cursoMayorHrs = new IEvaluadorCurso() {
             @Override
             public boolean evaluar(Curso01 c) {
                 return c.getDuracionHoras() > 40;
             }
         };
-
-        System.out.println("\n- Cursos de más de 40 horas");
         cursos.stream().filter(cursoMayorHrs::evaluar).forEach(System.out::println);
 
+        System.out.println("\n- Cursos con costo mayor a 2000");
         IEvaluadorCurso cursoMayorCosto = new IEvaluadorCurso() {
             @Override
             public boolean evaluar(Curso01 c) {
                 return c.getCosto() > 2000;
             }
         };
-
-        System.out.println("\n- Cursos con costo mayor a 2000");
         cursos.stream().filter(cursoMayorCosto::evaluar).forEach(System.out::println);
 
+        System.out.println("\n- Cursos de categoría \"Programación\"");
         IEvaluadorCurso cursoCategoriaP = new IEvaluadorCurso() {
             @Override
             public boolean evaluar(Curso01 c) {
                 return c.getCategoria().equals("Programacion");
             }
         };
-        
-        System.out.println("\n- Cursos de categoría \"Programación\"");
         cursos.stream().filter(cursoCategoriaP::evaluar).forEach(System.out::println);
 
         System.out.println("\nStreams: ");
         System.out.println("A) Obtener lista solo con nombres de cursos");
+        cursos.stream()
+                .forEach(c -> System.out.println(c.getNombre()));
 
         System.out.println("B) Mostrar cursos con costo menor a 3000");
+        cursos.stream()
+                .filter(c -> c.getCosto() < 3000)
+                .forEach(System.out::println);
 
         System.out.println("C) Calcular promedio de costo");
+        double promedio = cursos.stream()
+                .mapToDouble(Curso01::getCosto)
+                .average().orElse(0);
+
+        System.out.println(promedio);
 
         System.out.println("D) Contar cuántos cursos hay por categoría");
+        cursos.stream().map(null);
 
         System.out.println("\nAgrupar por categoría: ");
     }
