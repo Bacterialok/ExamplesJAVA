@@ -113,6 +113,18 @@ interface IEvaluadorCurso {
     }
 }
 
+class Caja<T> {
+    private T cursos;
+    
+    public Caja(T cursos) {
+        this.cursos = cursos;
+    }
+
+    public T getCursos() {
+        return this.cursos;
+    }
+}
+
 public class Main02 {
     public static void main(String[] args) {
         System.out.println("Crea una lista con al menos 8 cursos");
@@ -207,5 +219,37 @@ public class Main02 {
             listaNombres.stream().map(Curso01::getNombre).forEach(nombre -> System.out.println("     - " + nombre));
             System.out.println();
         });
+
+        System.out.println("\nGenérico: ");
+        Caja<List<Curso01>> caja = new Caja<>(cursos);
+        caja.getCursos().forEach(System.out::println);
+
+        System.out.println("\nConcurrencia: ");
+        Thread t1 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                System.out.println("Procesando inscripción del curso Java Intermedio...");
+            }
+        });
+
+        Thread t2 = new Thread(new Runnable() {
+            
+            @Override
+            public void run() {
+                System.out.println("Procesando inscripción del curso Java básico...");
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        System.out.println("\nReto extra: ");
+        System.out.println("El curso mas caro: " +cursoMasCaro(cursos) );
+
+    }
+
+    public static String cursoMasCaro(List<Curso01> cursos) {
+        return cursos.stream().max(Comparator.comparing(Curso01::getCosto)).map(Curso01::getNombre).get();
     }
 }
