@@ -3,6 +3,8 @@ package Ejercicio02;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 class Curso01 {
     private String nombre;
@@ -192,8 +194,18 @@ public class Main02 {
         System.out.println(promedio);
 
         System.out.println("D) Contar cuántos cursos hay por categoría");
-        cursos.stream().map(null);
+        cursos.stream()
+        .collect(
+            Collectors.groupingBy(Curso01::getCategoria, Collectors.counting()))
+        .forEach((nombre, cantidad) -> System.out.println("La categoria " + nombre + " tiene " + cantidad + " cursos"));
 
         System.out.println("\nAgrupar por categoría: ");
+        Map<String, List<Curso01>> cursosByCategia = cursos.stream().collect(Collectors.groupingBy(Curso01::getCategoria));
+
+        cursosByCategia.forEach((categoria, listaNombres) -> {
+            System.out.println(" * " + categoria);
+            listaNombres.stream().map(Curso01::getNombre).forEach(nombre -> System.out.println("     - " + nombre));
+            System.out.println();
+        });
     }
 }

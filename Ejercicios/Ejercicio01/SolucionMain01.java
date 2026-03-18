@@ -162,6 +162,7 @@ public class SolucionMain01 {
         List<String> nombres = empleados.stream()
                 .map(Empleado01::getNombre)
                 .collect(Collectors.toList());
+                
         nombres.forEach(System.out::println);
 
         System.out.println("\nB) Obtener los empleados con salario mayor a 12000.");
