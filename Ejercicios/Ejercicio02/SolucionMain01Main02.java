@@ -135,7 +135,7 @@ class TareaInscripcion implements Runnable {
     }
 }
 
-public class SolucionMain02 {
+public class SolucionMain01Main02 {
     public static void main(String[] args) {
         System.out.println("Crea una lista con al menos 8 cursos");
         List<Curso01> cursos = new ArrayList<>();
