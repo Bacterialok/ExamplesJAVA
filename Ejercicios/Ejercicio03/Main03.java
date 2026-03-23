@@ -6,7 +6,15 @@ class Libro {
     private int anioPublicacion;
     private double precio;
     private String genero;
+
+    public Libro() {
+        
+    }
+
+    
 }
+
+
 
 public class Main03 {
 
