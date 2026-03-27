@@ -10,7 +10,7 @@ record RectanguloRecord1(double base, double altura) {
     }
 }
 
-public class Ejercicio2 {
+public class Ejemplo2 {
     public static void main(String[] args) {
         System.out.println(new RectanguloRecord1(2,2).perimetro());
     }

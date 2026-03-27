@@ -1,6 +1,6 @@
 package Records.Ejemplos;
 
-public class Ejercicio3 {
+public class Ejemplo3 {
     public record EstudianteRecord1(String nombre, double promedio) {}
 
     public static void main(String[] args) {

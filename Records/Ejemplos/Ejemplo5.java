@@ -2,7 +2,7 @@ package Records.Ejemplos;
 
 import java.util.List;
 
-public class Ejercicio5 {
+public class Ejemplo5 {
     public static void main(String[] args) {
         List<EmpleadoRecord2> empleados = List.of(
             new EmpleadoRecord2("Omar", 40000),
